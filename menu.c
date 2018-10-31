@@ -14,7 +14,7 @@ void criaLinha(int v){
 }
 
 int menuA(void){
-    //printf("\33[H\33[2J");
+    printf("\33[H\33[2J");
     criaLinha(30);
     printf("\tMENU PRINCIPAL\n");
     criaLinha(30);
