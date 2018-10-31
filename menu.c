@@ -1,22 +1,38 @@
 #include <stdio.h>
 int n,iA=0,iB=0,iC=0;
+int menuA(void);
+int menuB(void);
+int menuC(void);
+
+void criaLinha(int v){
+  int i;
+  printf("=");
+  for (i=0;i<v;i++) {
+    printf("=");
+  }
+  printf("=\n");
+}
 
 int menuA(void){
-    printf("\33[H\33[2J");
-    printf("MENU PRINCIPAL\n\n");
+    //printf("\33[H\33[2J");
+    criaLinha(30);
+    printf("\tMENU PRINCIPAL\n");
+    criaLinha(30);
     printf("1. Operações com vetores.\n");
     printf("2. Operações com matrizes.\n");
     printf("3. Sair do programa.\n\n");
     if(iA!=0){
-        printf("Opção inválido, digite outro:\n\n");
+        printf("Opção inválida, digite outra:\n\n");
     }else{
-        printf("Insira uma opção:\n\n");
+        printf("Insira uma opção:\n");
     }
+    criaLinha(30);
     scanf("%d",&n);
     switch (n){
         case 1: menuB(); break;
         case 2: menuC(); break;
-        case 3: printf("Adeus.\n"); break;
+        case 3: printf("\33[H\33[2J"); printf("\nAdeus.\n\n"); break;
+        default: iA++;menuA();
     }
 }
 
@@ -34,12 +50,13 @@ int menuB(void){
         printf("Insira um opcao:\n\n");
     }
     scanf("%d",&n);
+    printf("\e[H\e[2J");
     switch (n){
-        case 1: printf("Ler vetores"); break;
-        case 2: printf("Somar dois vetores"); break;
-        case 3: printf("Multiplicar um dos vetores por um escalar"); break;
-        case 4: printf("Realizar o produto escalar entre dois vetores"); break;
-        case 5: menuA();break;
+        case 1: printf("Ler vetores\n"); break;
+        case 2: printf("Somar dois vetores\n"); break;
+        case 3: printf("Multiplicar um dos vetores por um escalar\n"); break;
+        case 4: printf("Realizar o produto escalar entre dois vetores\n"); break;
+        case 5: iA=0;menuA();break;
         default: iB++;menuB();
     }
 }
@@ -60,17 +77,19 @@ int menuC(void){
         printf("Insira um opcao:\n\n");
     }
     scanf("%d",&n);
+    printf("\e[H\e[2J");
     switch (n){
-        case 1: printf("Ler matrizes"); break;
+        case 1: printf("Ler matrizes\n"); break;
         case 2: printf("Somar duas matrizes\n"); break;
         case 3: printf("Multiplicar duas matrizes\n"); break;
         case 4: printf("Calcular a transposta de uma matrize\n"); break;
         case 5: printf("Calcular o determinante de uma matrizes (Apenas no iaso da matriz 1x1, 2x2, ou 3x3)\n"); break;
         case 6: printf("Verificar se uma matriz é simétrica\n"); break;
-        case 7: menuA();break;
+        case 7: iA=0;menuA();break;
         default: iC++;menuC();
     }
 }
 
 void main(){
     menuA();
+}
