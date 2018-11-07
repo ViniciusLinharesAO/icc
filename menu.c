@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "vetor.h"
 int n,iA=0,iB=0,iC=0;
 int menuA(void);
 int menuB(void);
@@ -52,7 +54,7 @@ int menuB(void){
     scanf("%d",&n);
     printf("\e[H\e[2J");
     switch (n){
-        case 1: printf("Ler vetores\n"); break;
+        case 1: lerVetor(); break;
         case 2: printf("Somar dois vetores\n"); break;
         case 3: printf("Multiplicar um dos vetores por um escalar\n"); break;
         case 4: printf("Realizar o produto escalar entre dois vetores\n"); break;
