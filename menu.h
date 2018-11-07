@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "vetor.h"
+
 int n,iA=0,iB=0,iC=0;
 int menuA(void);
 int menuB(void);
@@ -40,7 +40,9 @@ int menuA(void){
 
 int menuB(void){
     printf("\e[H\e[2J");
-    printf("OPERAÇÕES COM VETORES\n\n");
+    criaLinha(30);
+    printf("\tOPERAÇÕES COM VETORES\n");
+    criaLinha(30);
     printf("1. Ler vetores\n");
     printf("2. Somar dois vetores\n");
     printf("3. Multiplicar um dos vetores por um escalar\n");
@@ -51,6 +53,7 @@ int menuB(void){
     }else{
         printf("Insira um opcao:\n\n");
     }
+    criaLinha(30);
     scanf("%d",&n);
     printf("\e[H\e[2J");
     switch (n){
@@ -90,8 +93,4 @@ int menuC(void){
         case 7: iA=0;menuA();break;
         default: iC++;menuC();
     }
-}
-
-void main(){
-    menuA();
 }

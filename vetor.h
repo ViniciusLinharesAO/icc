@@ -1,13 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 void lerVetor() {
+    int menuB(void);
     int quantVet, tamVet;
 
-    printf("1. Digite 0 para voltar ao menu\n");
-    printf("2. Informe a quantidade de vetores:");
+    printf("! Digite 0 para voltar ao menu !\n");
+    printf("- Informe a quantidade de vetores:  ");
     scanf("%d", &quantVet);
     if(quantVet == 0) menuB();
 
-    printf("3. Informe o tamanho dos vetores: ");
+    printf("- Informe o tamanho dos vetores:  ");
     scanf("%d", &tamVet);
+    if(quantVet == 0) menuB();
 
     int vetor[tamVet][quantVet], i;
 
@@ -24,7 +29,7 @@ void lerVetor() {
       printf("\n");
     }
 
-    printf("3. Digite 0 para voltar ao menu: ");
+    printf("! Digite 0 para voltar ao menu !\n");
     scanf("%d",&i);
     if(i == 0) menuB();
 }
