@@ -35,8 +35,8 @@ int menuA(void){
     criaLinha(30);
     scanf("%d",&n);
     switch (n){
-        case 1: menuB(); break;
-        case 2: menuC(); break;
+        case 1: iB=0;menuB(); break;
+        case 2: iC=0;menuC(); break;
         case 3: printf("\33[H\33[2J"); printf("\nAdeus.\n\n"); break;
         default: iA++;menuA();
     }
