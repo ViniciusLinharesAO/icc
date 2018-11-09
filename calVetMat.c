@@ -1,5 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "vetor.h"
+
+int *vet1 = NULL, *vet2 = NULL;
+int n1=1,n2=1;
 
 int n,iA=0,iB=0,iC=0;
 int menuA(void);
@@ -26,7 +30,7 @@ int menuA(void){
     if(iA!=0){
         printf("Opção inválida, digite outra:\n\n");
     }else{
-        printf("Insira uma opção:\n");
+        printf("Insira uma opção:\n\n");
     }
     criaLinha(30);
     scanf("%d",&n);
@@ -57,10 +61,10 @@ int menuB(void){
     scanf("%d",&n);
     printf("\e[H\e[2J");
     switch (n){
-        case 1: lerVetor(); break;
-        case 2: printf("Somar dois vetores\n"); break;
-        case 3: printf("Multiplicar um dos vetores por um escalar\n"); break;
-        case 4: printf("Realizar o produto escalar entre dois vetores\n"); break;
+        case 1: lerVetor(&vet1, &vet2, &n1,&n2); break;
+        case 2: soma2Vet(vet1, vet2, n1, n2); break;
+        case 3: mulEsc(vet1, vet2, n1, n2); break;
+        case 4: prodEsc2Vet(vet1, vet2, n1,n2); break;
         case 5: iA=0;menuA();break;
         default: iB++;menuB();
     }
@@ -93,4 +97,8 @@ int menuC(void){
         case 7: iA=0;menuA();break;
         default: iC++;menuC();
     }
+}
+
+void main(){
+    menuA();
 }
