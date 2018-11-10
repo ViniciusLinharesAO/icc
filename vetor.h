@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define aviso printf
 int lerDnv=0;
 
 void lerVetor(int **vet1,int **vet2, int *n1, int *n2) {
@@ -33,6 +34,7 @@ void lerVetor(int **vet1,int **vet2, int *n1, int *n2) {
     }
   }
   if(lerDnv==0){
+    aviso("*Informe tamanhos iguais para os vetores!*\n\n");
     printf("Digite o tamanho do Vetor 1: ");
     scanf("%d", n1);
     *vet1 = (int *) malloc((*n1)*sizeof(int));
