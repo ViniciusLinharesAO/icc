@@ -1,7 +1,7 @@
 // #############################################################################
 //        **``CALCULADORA COM OPERAÇÕES DE VETORES E MATRIZES´´**
 //        **``UNIVERSIDADE ESTADUAL DO CEARÁ - CIÊNCIA DA COMPUTAÇÃO´´**
-//Autores: - Davi Luis Barbosa Silve
+//Autores: - Davi Luís Barbosa Silve
 //         - Dedyanna Carla de Almeida Cacau
 //         - Vinícius Linhares Alves de Oliveira
 //               **``FORTALEZA/CE-2018´´**
@@ -54,9 +54,9 @@ int menuA(void){ //**FUNÇÃO DO MENU PRINCIPAL**//
 
 int menuB(void){//**MENU DE OPERAÇÕES COM VETORES**//
     printf("\e[H\e[2J");
-    criaLinha(30);
-    printf("\tOPERAÇÕES COM VETORES\n");
-    criaLinha(30);
+    criaLinha(50);
+    printf("\t\tOPERAÇÕES COM VETORES\n");
+    criaLinha(50);
     printf("1. Ler vetores\n");
     printf("2. Somar dois vetores\n");
     printf("3. Multiplicar um dos vetores por um escalar\n");
@@ -67,7 +67,7 @@ int menuB(void){//**MENU DE OPERAÇÕES COM VETORES**//
     }else{
         printf("Insira um opcao:\n\n");
     }
-    criaLinha(30);
+    criaLinha(50);
     scanf("%d",&n);
     printf("\e[H\e[2J");
     switch (n){//**OPÇÕES DO MENU DE OPERAÇÕES COM VETORES**//
@@ -82,14 +82,14 @@ int menuB(void){//**MENU DE OPERAÇÕES COM VETORES**//
 
 int menuC(void){//**MENU DE OPERAÇÕES COM MATRIZES**//
     printf("\e[H\e[2J");
-    criaLinha(30);
-    printf("OPERAÇÕES COM MATRIZES\n");
-    criaLinha(30);
+    criaLinha(55);
+    printf("\t\tOPERAÇÕES COM MATRIZES\n");
+    criaLinha(55);
     printf("1. Ler matrizes\n");
     printf("2. Somar duas matrizes\n");
     printf("3. Multiplicar duas matrizes\n");
-    printf("4. Calcular a transposta de uma matrize\n");
-    printf("5. Calcular o determinante de uma matrizes \n\t(Apenas no caso da matriz 1x1, 2x2, ou 3x3)\n");
+    printf("4. Calcular a transposta de uma matriz\n");
+    printf("5. Calcular o determinante de uma matriz \n(Apenas no caso da matriz 1x1, 2x2, ou 3x3)\n");
     printf("6. Verificar se uma matriz é simétrica\n");
     printf("7. Voltar ao menu principal\n\n");
     if(iC!=0){
@@ -97,7 +97,7 @@ int menuC(void){//**MENU DE OPERAÇÕES COM MATRIZES**//
     }else{
         printf("Insira um opcao:\n\n");
     }
-    criaLinha(30);
+    criaLinha(55);
     scanf("%d",&n);
     printf("\e[H\e[2J");
     switch (n){//**OPÇÕES DO MENU DE OPERAÇÕES COM MATRIZES**//
