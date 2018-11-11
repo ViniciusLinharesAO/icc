@@ -1,3 +1,12 @@
+// #############################################################################
+//        **``CALCULADORA COM OPERAÇÕES DE VETORES E MATRIZES´´**
+//        **``UNIVERSIDADE ESTADUAL DO CEARÁ - CIÊNCIA DA COMPUTAÇÃO´´**
+//Autores: - Davi Luis Barbosa Silve
+//         - Dedyanna Carla de Almeida Cacau
+//         - Vinícius Linhares Alves de Oliveira
+//               **``FORTALEZA/CE-2018´´**
+//##############################################################################
+// **``PROGRAMA PRINCIPAL´´**
 #include <stdio.h>
 #include <stdlib.h>
 #include "vetor.h"
@@ -20,7 +29,7 @@ void criaLinha(int v){
   printf("=\n");
 }
 
-int menuA(void){
+int menuA(void){ //**FUNÇÃO DO MENU PRINCIPAL**//
     printf("\33[H\33[2J");
     criaLinha(30);
     printf("\tMENU PRINCIPAL\n");
@@ -35,7 +44,7 @@ int menuA(void){
     }
     criaLinha(30);
     scanf("%d",&n);
-    switch (n){
+    switch (n){ //**OPÇÕES DO MENU PRINCIPAL**//
         case 1: iB=0;menuB(); break;
         case 2: iC=0;menuC(); break;
         case 3: printf("\33[H\33[2J"); printf("\nAdeus.\n\n"); break;
@@ -43,7 +52,7 @@ int menuA(void){
     }
 }
 
-int menuB(void){
+int menuB(void){//**MENU DE OPERAÇÕES COM VETORES**//
     printf("\e[H\e[2J");
     criaLinha(30);
     printf("\tOPERAÇÕES COM VETORES\n");
@@ -61,7 +70,7 @@ int menuB(void){
     criaLinha(30);
     scanf("%d",&n);
     printf("\e[H\e[2J");
-    switch (n){
+    switch (n){//**OPÇÕES DO MENU DE OPERAÇÕES COM VETORES**//
         case 1: lerVetor(&vet1, &vet2, &n1, &n2); break;
         case 2: soma2Vet(vet1, vet2, n1, n2); break;
         case 3: mulEsc(vet1, vet2, n1, n2); break;
@@ -71,7 +80,7 @@ int menuB(void){
     }
 }
 
-int menuC(void){
+int menuC(void){//**MENU DE OPERAÇÕES COM MATRIZES**//
     printf("\e[H\e[2J");
     criaLinha(30);
     printf("OPERAÇÕES COM MATRIZES\n");
@@ -91,7 +100,7 @@ int menuC(void){
     criaLinha(30);
     scanf("%d",&n);
     printf("\e[H\e[2J");
-    switch (n){
+    switch (n){//**OPÇÕES DO MENU DE OPERAÇÕES COM MATRIZES**//
         case 1: printf("lerMatriz\n"); break;
         case 2: printf("Somar duas matrizes\n"); break;
         case 3: printf("Multiplicar duas matrizes\n"); break;

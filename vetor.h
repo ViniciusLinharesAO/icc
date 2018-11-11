@@ -1,13 +1,22 @@
+// #############################################################################
+//        **``CALCULADORA COM OPERAÇÕES DE VETORES E MATRIZES´´**
+//        **``UNIVERSIDADE ESTADUAL DO CEARÁ - CIÊNCIA DA COMPUTAÇÃO´´**
+//Autores: - Davi Luis Barbosa Silve
+//         - Dedyanna Carla de Almeida Cacau
+//         - Vinícius Linhares Alves de Oliveira
+//               **``FORTALEZA/CE-2018´´**
+//##############################################################################
+// **``BLIBIOTECA DE OPERAÇÕES DOS VETORES´´**
 #include <stdio.h>
 #include <stdlib.h>
 #define aviso printf
 int lerDnv=0;
-
+//**FUNÇÃO DE LEITURA DOS VETORES**//
 void lerVetor(int **vet1,int **vet2, int *n1, int *n2) {
   int menuB(void);
   int i;
   if(lerDnv==1){
-    printf("Sobrescrever os vetores?( 1=sim / 0=nao )\n");
+    printf("Sobrescrever os vetores?( 1=Sim / 0=Não )\n");
     scanf("%d", &i);
     if (i==0) {
       menuB();
@@ -29,7 +38,7 @@ void lerVetor(int **vet1,int **vet2, int *n1, int *n2) {
       lerDnv++;
     }
     if(i!=0 && i!=1){
-      printf("opção inválida, digite 0 para voltar para o menu: ");
+      printf("Opção inválida, digite 0 para voltar para o menu: ");
       scanf("%d", &i);
     }
   }
@@ -51,7 +60,7 @@ void lerVetor(int **vet1,int **vet2, int *n1, int *n2) {
   }
   menuB();
 }
-
+//**FUNÇÃO DE SOMA ENTRE OS VETORES**//
 int soma2Vet(int *vet1, int *vet2, int n1, int n2){
   int menuB(void);
   int i;
@@ -65,13 +74,13 @@ int soma2Vet(int *vet1, int *vet2, int n1, int n2){
     menuB();
   }
   else{
-    printf("vetores com tamanhos diferentes!\n");
-    printf("digite 0 para voltar: ");
+    printf("Vetores com tamanhos diferentes!\n");
+    printf("\nDigite 0 para voltar: ");
     scanf("%d", &i);
     menuB();
   }
 }
-
+//**FUNÇÃO DE MULTIPLICAÇÃO POR ESCALAR COM 1 DOS VETORES**//
 int mulEsc(int *vet1, int *vet2, int n1, int n2){
   int menuB(void);
   int i;
@@ -101,12 +110,12 @@ int mulEsc(int *vet1, int *vet2, int n1, int n2){
         menuB();
       }
     }else{
-      printf("opção inválida, digite 0 para voltar para o menu: ");
+      printf("Opção inválida, digite 0 para voltar para o menu: ");
       scanf("%d", &i);
     }
   }
 }
-
+//**FUNÇÃO DO PRODUTO ESCALAR ENTRE OS VETORES**//
 int prodEsc2Vet(int *vet1, int *vet2, int n1, int n2){
   int menuB(void);
   int i,r=0;
@@ -120,8 +129,8 @@ int prodEsc2Vet(int *vet1, int *vet2, int n1, int n2){
     menuB();
   }
   else{
-    printf("vetores com tamanhos diferentes!\n");
-    printf("digite 0 para voltar: ");
+    printf("Vetores com tamanhos diferentes!\n");
+    printf("\nDigite 0 para voltar: ");
     scanf("%d", &i);
     menuB();
   }
