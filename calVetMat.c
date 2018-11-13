@@ -10,10 +10,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "vetor.h"
-//#include "matriz.h"
+#include "matriz.h"
 
-int *vet1 = NULL, *vet2 = NULL, *mat1 = NULL, *mat2 = NULL;
-int n1=1, n2=1;
+int *vet1 = NULL, *vet2 = NULL, n1=1, n2=1;
+int **mat1 = NULL, **mat2 = NULL, l1=1, c1=1, c2=1, l2=1;
 
 int n,iA=0,iB=0,iC=0;
 int menuA(void);
@@ -30,7 +30,7 @@ void criaLinha(int v){
 }
 
 int menuA(void){ //**FUNÇÃO DO MENU PRINCIPAL**//
-    printf("\33[H\33[2J");
+    //printf("\33[H\33[2J");
     criaLinha(30);
     printf("\tMENU PRINCIPAL\n");
     criaLinha(30);
@@ -101,10 +101,10 @@ int menuC(void){//**MENU DE OPERAÇÕES COM MATRIZES**//
     scanf("%d",&n);
     printf("\e[H\e[2J");
     switch (n){//**OPÇÕES DO MENU DE OPERAÇÕES COM MATRIZES**//
-        case 1: printf("lerMatriz\n"); break;
-        case 2: printf("Somar duas matrizes\n"); break;
-        case 3: printf("Multiplicar duas matrizes\n"); break;
-        case 4: printf("Calcular a transposta de uma matrize\n"); break;
+        case 1: lerMatriz(&mat1, &mat2, &l1, &c1, &l2, &c2); break;
+        case 2: soma2Mat(mat1, mat2, l1, c1, l2, c2); break;
+        case 3: Mul2mat(mat1, mat2, l1, c1, l2, c2); break;
+        case 4: transMat(mat1, mat2, l1, c1, l2, c2); break;
         case 5: printf("Calcular o determinante de uma matrizes (Apenas no iaso da matriz 1x1, 2x2, ou 3x3)\n"); break;
         case 6: printf("Verificar se uma matriz é simétrica\n"); break;
         case 7: iA=0;menuA();break;

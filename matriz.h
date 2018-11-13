@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void lerMatriz(int **mat1,int **mat2, int *x1, int *y1, int *x2, int *y2) {
-  int menuB(void);
+void lerMatriz(int ***mat1,int ***mat2, int *x1, int *y1, int *x2, int *y2) {
+  int menuC(void);
   int i,j;
   printf("Digite a quantidade de linhas da Matriz 1: ");
   scanf("%d", x1);
   printf("Digite a quantidade de colunas da Matriz 1: ");
   scanf("%d", y1);
-  **mat1 = (int **)malloc((*x1) * sizeof(int *));
-    for (i=0; i < *x1; i++){
-         mat1[i] = (int *)malloc((*y1) * sizeof(int));
-    }
-  for (int i = 0; i < *x1; i++) {
-    for (int i = 0; i < *y1; i++) {
+  (*mat1) = (int **)malloc((*x1) * sizeof(int *));
+  for (i=0; i < *x1; i++){
+    (*mat1)[i] = (int *)malloc((*y1) * sizeof(int *));
+  }
+  for (i = 0; i < *x1; i++) {
+    for (j = 0; j < *y1; j++) {
       scanf("%d", &(*mat1)[i][j]);
     }
   }
@@ -21,11 +21,86 @@ void lerMatriz(int **mat1,int **mat2, int *x1, int *y1, int *x2, int *y2) {
   scanf("%d", x2);
   printf("Digite a quantidade de colunas da Matriz 2: ");
   scanf("%d", y2);
-  *mat2 = (int *) malloc((*x2)*sizeof(int));
-  for (int i = 0; i < *x2; i++) {
-    for (int i = 0; i < *y2; i++) {
+  (*mat2) = (int **)malloc((*x2) * sizeof(int *));
+  for (i=0; i < *x2; i++){
+    (*mat2)[i] = (int *)malloc((*y2) * sizeof(int *));
+  }
+  for (i = 0; i < *x2; i++) {
+    for (j = 0; j < *y2; j++) {
       scanf("%d", &(*mat2)[i][j]);
     }
   }
-  menuB();
+  printf("\nDigite 0 para voltar: ");
+  scanf("%d", &i);
+  menuC();
+}
+
+int soma2Mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2){
+  int menuC(void);
+  int i, j;
+  if(x1==x2 || y1==y2){
+    for (i = 0; i < x1; i++) {
+      for (j = 0; j < y1; j++) {
+        printf("%d ", ((mat1)[i][j])+((mat2)[i][j]));
+        if(j==(x1)-1){printf("\n");}
+      }
+    }
+    printf("\nDigite 0 para voltar: ");
+    scanf("%d", &i);
+    menuC();
+  }
+  else{
+    printf("Vetores com tamanhos diferentes!\n");
+    printf("\nDigite 0 para voltar: ");
+    scanf("%d", &i);
+    menuC();
+  }
+}
+
+int Mul2mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
+  int menuC(void);
+  int i, j, k;
+  int mulVet[x1][y2];
+  for (i = 0; i < x1; i++){
+    for (j = 0; j < y1; j++){
+      mulVet[i][j] = 0;
+      for (k = 0; k < y1; k++){
+        mulVet[i][j] = mulVet[i][j] + mat1[i][k] * mat2[k][j];
+      }
+    }
+  }
+  for (i = 0; i < x1; i++) {
+    for (j = 0; j < y1; j++) {
+      printf("%d ", (mulVet)[i][j]);
+      if(j==(x1)-1){printf("\n");}
+    }
+  }
+  printf("\nDigite 0 para voltar: ");
+  scanf("%d", &i);
+  menuC();
+}
+
+int transMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
+  int menuC(void);
+  int i, j, k;
+  printf("Matriz 1 ou 2: ");
+  scanf("%d", &k);
+  if (k==1) {
+    for (j = 0; j < x1; j++) {
+      for (i = 0; i < y1; i++) {
+        printf("%d ", (mat1)[i][j]);
+        if(i==(x1)-1){printf("\n");}
+      }
+    }
+  }else{
+    for (j = 0; j < x2; j++) {
+      for (i = 0; i < y2; i++) {
+        printf("%d ", (mat2)[i][j]);
+        if(i==(x2)-1){printf("\n");}
+      }
+    }
+  }
+  printf("\nDigite 0 para voltar: ");
+  scanf("%d", &i);
+  menuC();
 }
