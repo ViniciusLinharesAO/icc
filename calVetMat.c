@@ -106,7 +106,7 @@ int menuC(void){//**MENU DE OPERAÇÕES COM MATRIZES**//
         case 3: Mul2mat(mat1, mat2, l1, c1, l2, c2); break;
         case 4: transMat(mat1, mat2, l1, c1, l2, c2); break;
         case 5: printf("Calcular o determinante de uma matrizes (Apenas no iaso da matriz 1x1, 2x2, ou 3x3)\n"); break;
-        case 6: printf("Verificar se uma matriz é simétrica\n"); break;
+        case 6: simMat(mat1, mat2, l1, c1, l2, c2); break;
         case 7: iA=0;menuA();break;
         default: iC++;menuC();
     }
