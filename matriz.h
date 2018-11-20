@@ -128,6 +128,54 @@ int deterMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
       scanf("%d", &k);
       menuC();
     }
+    if (x1 == 2 && y1 == 2) {
+      d = ((mat1)[0][0]*(mat1)[1][1])
+          -
+          ((mat1)[0][1]*(mat1)[1][0]);
+      printf("%d\n", d);
+      scanf("%d", &k);
+      menuC();
+    }
+    if (x1 == 1 && y1 == 1) {
+      d = (mat1)[0][0];
+      printf("%d\n", d);
+      scanf("%d", &k);
+      menuC();
+    }
+  }
+  if (k==2) {
+    if(x2 == 3 && y2 == 3){
+      d = ((mat2)[0][0]*(mat2)[1][1]*(mat2)[2][2] +
+           (mat2)[0][1]*(mat2)[1][2]*(mat2)[2][0] +
+           (mat2)[0][2]*(mat2)[1][0]*(mat2)[2][1])
+          -
+          ((mat2)[0][2]*(mat2)[1][1]*(mat2)[2][0] +
+           (mat2)[0][0]*(mat2)[1][2]*(mat2)[2][1] +
+           (mat2)[0][1]*(mat2)[1][0]*(mat2)[2][2]);
+      printf("%d\n", d);
+      scanf("%d", &k);
+      menuC();
+    }
+    if (x2 == 2 && y2 == 2) {
+      d = ((mat2)[0][0]*(mat2)[1][1])
+          -
+          ((mat2)[0][1]*(mat2)[1][0]);
+      printf("%d\n", d);
+      scanf("%d", &k);
+      menuC();
+    }
+    if (x2 == 1 && y2 == 1) {
+      d = (mat2)[0][0];
+      printf("%d\n", d);
+      scanf("%d", &k);
+      menuC();
+    }
+  }
+  if (k!=1 && k!=2) {
+    printf("Opção inválida!\n");
+    printf("\nDigite 0 para voltar: ");
+    scanf("%d", &k);
+    menuC();
   }
 }
 
@@ -137,12 +185,12 @@ int simMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   printf("Matriz 1 ou 2: ");
   scanf("%d", &k);
   if (k==1) {
-    for (j = 0; j < y1; j++) {
-      for (i = 0; i < x1; i++) {
-        (sim1)[i][j] = (mat1)[i][j];
-      }
-    }
     if (x1==y1){
+      for (j = 0; j < y1; j++) {
+        for (i = 0; i < x1; i++) {
+          (sim1)[j][i] = (mat1)[i][j];
+        }
+      }
       for (i = 0; i < x1; i++){
         for (j = 0; j < y1; j++){
           if ((mat1)[i][j] != (sim1)[i][j]){
@@ -153,19 +201,19 @@ int simMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
           break;
         }
       }
-      if (i == x1)
+      if (i == x1) {
         printf("A matriz é simetrica.\n");
-      else
+      }else{
         printf("A matriz não é simetrica.\n");
+      }
     }else{
       printf("A matriz não é simetrica.\n");
     }
   }
-
   if (k==2) {
     for (j = 0; j < y2; j++) {
       for (i = 0; i < x2; i++) {
-        (sim2)[i][j] = (mat2)[i][j];
+        (sim2)[j][i] = (mat2)[i][j];
       }
     }
     if (x2==y2){
@@ -187,7 +235,6 @@ int simMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
       printf("A matriz não é simetrica.\n");
     }
   }
-
   if (k != 1 && k != 2) {
     printf("Opção inválida!\n");
     printf("\nDigite 0 para voltar: ");
