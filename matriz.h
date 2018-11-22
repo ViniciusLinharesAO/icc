@@ -12,8 +12,10 @@ void lerMatriz(int ***mat1,int ***mat2, int *x1, int *y1, int *x2, int *y2) {
   for (i=0; i < *x1; i++){
     (*mat1)[i] = (int *)malloc((*y1) * sizeof(int *));
   }
+  printf("insira os valores\n");
   for (i = 0; i < *x1; i++) {
     for (j = 0; j < *y1; j++) {
+      printf("[%d][%d]: ", i+1, j+1);
       scanf("%d", &(*mat1)[i][j]);
     }
   }
@@ -25,8 +27,10 @@ void lerMatriz(int ***mat1,int ***mat2, int *x1, int *y1, int *x2, int *y2) {
   for (i=0; i < *x2; i++){
     (*mat2)[i] = (int *)malloc((*y2) * sizeof(int *));
   }
+  printf("insira os valores\n");
   for (i = 0; i < *x2; i++) {
     for (j = 0; j < *y2; j++) {
+      printf("[%d][%d]: ", i+1, j+1);
       scanf("%d", &(*mat2)[i][j]);
     }
   }
@@ -59,21 +63,57 @@ int soma2Mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2){
 
 int Mul2mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   int menuC(void);
-  int i, j, k;
-  int mulVet[x1][y2];
-  for (i = 0; i < x1; i++){
-    for (j = 0; j < y1; j++){
-      mulVet[i][j] = 0;
-      for (k = 0; k < y1; k++){
-        mulVet[i][j] = mulVet[i][j] + mat1[i][k] * mat2[k][j];
+  int i, j, k, n, f=0;
+  printf("1. A*B\n2. B*A\nOperação 1 ou 2: ");
+  scanf("%d", &n);
+  if (n == 1) {
+    if (y1 == x2) {
+      int mulVet[x1][y2];
+      for (i = 0; i < x1; i++){
+        for (j = 0; j < y2; j++){
+          mulVet[i][j] = 0;
+          for (k = 0; k < y2; k++){
+            mulVet[i][j] = mulVet[i][j] + mat1[i][k] * mat2[k][j];
+          }
+        }
       }
+      for (i = 0; i < x1; i++) {
+        for (j = 0; j < y2; j++) {
+          printf("%d ", (mulVet)[i][j]);
+        }
+        printf("\n");
+      }
+    }else{
+      printf("Operação impossível!!");
     }
   }
-  for (i = 0; i < x1; i++) {
-    for (j = 0; j < y1; j++) {
-      printf("%d ", (mulVet)[i][j]);
-      if(j==(x1)-1){printf("\n");}
+  if (n == 2) {
+    if (y2 == x1) {
+      int mulVet2[x2][y1];
+      for (i = 0; i < x2; i++){
+        for (j = 0; j < y1; j++){
+          mulVet2[i][j] = 0;
+          f++;printf("\nFODEU %d\n", f);
+          for (k = 0; k < y1; k++){
+            mulVet2[i][j] = mulVet2[i][j] + mat1[i][k] * mat2[k][j];
+          }
+        }
+      }
+      for (i = 0; i < x2; i++) {
+        for (j = 0; j < y1; j++) {
+          printf("%d ", (mulVet2)[i][j]);
+        }
+        printf("\n");
+      }
+    }else{
+      printf("Operação impossível!!");
     }
+  }
+  if (n != 1 && n != 2) {
+    printf("Opção inválida!\n");
+    printf("\nDigite 0 para voltar: ");
+    scanf("%d", &k);
+    menuC();
   }
   printf("\nDigite 0 para voltar: ");
   scanf("%d", &i);

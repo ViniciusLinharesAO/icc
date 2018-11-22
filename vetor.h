@@ -25,14 +25,18 @@ void lerVetor(int **vet1,int **vet2, int *n1, int *n2) {
       lerDnv=0;
       printf("Digite o tamanho do Vetor 1: ");
       scanf("%d", n1);
+      printf("insira os valores\n");
       *vet1 = (int *) malloc((*n1)*sizeof(int));
       for (int i = 0; i < *n1; i++) {
+        printf("[%d]: ", i+1);
         scanf("%d", &(*vet1)[i]);
       }
       printf("Digite o tamanho do Vetor 2: ");
       scanf("%d", n2);
+      printf("insira os valores\n");
       *vet2 = (int *) malloc((*n2)*sizeof(int));
       for (int i = 0; i < *n2; i++) {
+        printf("[%d]: ", i+1);
         scanf("%d", &(*vet2)[i]);
       }
       lerDnv++;
@@ -43,17 +47,20 @@ void lerVetor(int **vet1,int **vet2, int *n1, int *n2) {
     }
   }
   if(lerDnv==0){
-    aviso("*Informe tamanhos iguais para os vetores!*\n\n");
     printf("Digite o tamanho do Vetor 1: ");
     scanf("%d", n1);
+    printf("insira os valores\n");
     *vet1 = (int *) malloc((*n1)*sizeof(int));
     for (int i = 0; i < *n1; i++) {
       scanf("%d", &(*vet1)[i]);
+      printf("[%d]: ", i+1);
     }
     printf("Digite o tamanho do Vetor 2: ");
     scanf("%d", n2);
+    printf("insira os valores\n");
     *vet2 = (int *) malloc((*n2)*sizeof(int));
     for (int i = 0; i < *n2; i++) {
+      printf("[%d]: ", i+1);
       scanf("%d", &(*vet2)[i]);
     }
     lerDnv++;
@@ -67,9 +74,8 @@ int soma2Vet(int *vet1, int *vet2, int n1, int n2){
   if(n1==n2){
     for (i = 0; i < n1; i++) {
       printf("%d ", vet1[i]+vet2[i]);
-      if(i==n1-1){ printf("\n"); }
     }
-    printf("\nDigite 0 para voltar\n");
+    printf("\n\nDigite 0 para voltar\n");
     scanf("%d", &i);
     menuB();
   }
