@@ -91,34 +91,32 @@ int mulEsc(int *vet1, int *vet2, int n1, int n2){
   int menuB(void);
   int i;
   int v,n;
-  if(n1==n2){
-    printf("Vetor 1 ou 2?: ");
-    scanf("%d", &v);
-    if(v==1 || v==2){
-      printf("Valor a ser multiplicado: ");
-      scanf("%d", &n);
-      if(v==1){
-        for (int i = 0; i < n1; i++) {
-          printf("%d ", n*(vet1[i]));
-          if(i==n1-1){ printf("\n"); }
-        }
-        printf("\n\nDigite 0 para voltar\n");
-        scanf("%d", &i);
-        menuB();
+  printf("Vetor 1 ou 2?: ");
+  scanf("%d", &v);
+  if(v==1 || v==2){
+    printf("Valor a ser multiplicado: ");
+    scanf("%d", &n);
+    if(v==1){
+      for (int i = 0; i < n1; i++) {
+        printf("%d ", n*(vet1[i]));
+        if(i==n1-1){ printf("\n"); }
       }
-      if(v==2){
-        for (int i = 0; i < n2; i++) {
-          printf("%d ", n*(vet2[i]));
-          if(i==n2-1){ printf("\n"); }
-        }
-        printf("\n\nDigite 0 para voltar\n");
-        scanf("%d", &i);
-        menuB();
-      }
-    }else{
-      printf("Opção inválida, digite 0 para voltar para o menu: ");
+      printf("\n\nDigite 0 para voltar\n");
       scanf("%d", &i);
+      menuB();
     }
+    if(v==2){
+      for (int i = 0; i < n2; i++) {
+        printf("%d ", n*(vet2[i]));
+      }
+      printf("\n\nDigite 0 para voltar\n");
+      scanf("%d", &i);
+      menuB();
+    }
+  }else{
+    printf("Opção inválida, digite 0 para voltar para o menu: ");
+    scanf("%d", &i);
+    menuB();
   }
 }
 //**FUNÇÃO DO PRODUTO ESCALAR ENTRE OS VETORES**//
