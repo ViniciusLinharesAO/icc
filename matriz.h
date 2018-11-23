@@ -1,6 +1,15 @@
+// #############################################################################
+//        **``CALCULADORA COM OPERAÇÕES DE VETORES E MATRIZES´´**
+//        **``UNIVERSIDADE ESTADUAL DO CEARÁ - CIÊNCIA DA COMPUTAÇÃO´´**
+//Autores: - Davi Luis Barbosa Silve
+//         - Dedyanna Carla de Almeida Cacau
+//         - Vinícius Linhares Alves de Oliveira
+//               **``FORTALEZA/CE-2018´´**
+//##############################################################################
+// **``BLIBIOTECA DE OPERAÇÕES DAS MATRIZES´´**
 #include <stdio.h>
 #include <stdlib.h>
-
+//**FUNÇÃO DE LEITURA DAS MATRIZES**//
 void lerMatriz(int ***mat1,int ***mat2, int *x1, int *y1, int *x2, int *y2) {
   int menuC(void);
   int i,j;
@@ -38,7 +47,7 @@ void lerMatriz(int ***mat1,int ***mat2, int *x1, int *y1, int *x2, int *y2) {
   scanf("%d", &i);
   menuC();
 }
-
+//**FUNÇÃO DE SOMA ENTRE AS MATRIZES**//
 int soma2Mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2){
   int menuC(void);
   int i, j;
@@ -60,7 +69,7 @@ int soma2Mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2){
     menuC();
   }
 }
-
+//**FUNÇÃO DE MULTIPLICAÇÃO ENTRE AS MATRIZES**//
 int Mul2mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   int menuC(void);
   int i, j, k, n;
@@ -118,7 +127,7 @@ int Mul2mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   scanf("%d", &i);
   menuC();
 }
-
+//**FUNÇÃO DE TRANSPOSTA DA MATRIZ**//
 int transMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   int menuC(void);
   int i, j, k;
@@ -148,7 +157,7 @@ int transMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   scanf("%d", &i);
   menuC();
 }
-
+//**FUNÇÃO DO DETERMINANTE DAS MATRIZ**//
 int deterMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   int menuC(void);
   int k,d;
@@ -231,7 +240,7 @@ int deterMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
     menuC();
   }
 }
-
+//**FUNÇÃO DE VERIFICAÇÃO SIMÉTRICA DA MATRIZ**//
 int simMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   int menuC(void);
   int i, j, k, sim1[x1][y1], sim2[x2][y2];
