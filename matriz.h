@@ -155,57 +155,71 @@ int deterMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   printf("Apenas no caso da matriz 1x1, 2x2, ou 3x3\nMatriz 1 ou 2: ");
   scanf("%d", &k);
   if (k==1) {
-    if(x1 == 3 && y1 == 3){
-      d = ((mat1)[0][0]*(mat1)[1][1]*(mat1)[2][2] +
-           (mat1)[0][1]*(mat1)[1][2]*(mat1)[2][0] +
-           (mat1)[0][2]*(mat1)[1][0]*(mat1)[2][1])
-          -
-          ((mat1)[0][2]*(mat1)[1][1]*(mat1)[2][0] +
-           (mat1)[0][0]*(mat1)[1][2]*(mat1)[2][1] +
-           (mat1)[0][1]*(mat1)[1][0]*(mat1)[2][2]);
-      printf("%d\n", d);
-      scanf("%d", &k);
-      menuC();
-    }
-    if (x1 == 2 && y1 == 2) {
-      d = ((mat1)[0][0]*(mat1)[1][1])
-          -
-          ((mat1)[0][1]*(mat1)[1][0]);
-      printf("%d\n", d);
-      scanf("%d", &k);
-      menuC();
-    }
-    if (x1 == 1 && y1 == 1) {
-      d = (mat1)[0][0];
-      printf("%d\n", d);
+    if (x1 ==y1) {
+      if(x1 == 3 && y1 == 3){
+        d = ((mat1)[0][0]*(mat1)[1][1]*(mat1)[2][2] +
+             (mat1)[0][1]*(mat1)[1][2]*(mat1)[2][0] +
+             (mat1)[0][2]*(mat1)[1][0]*(mat1)[2][1])
+            -
+            ((mat1)[0][2]*(mat1)[1][1]*(mat1)[2][0] +
+             (mat1)[0][0]*(mat1)[1][2]*(mat1)[2][1] +
+             (mat1)[0][1]*(mat1)[1][0]*(mat1)[2][2]);
+        printf("%d\n", d);
+        scanf("%d", &k);
+        menuC();
+      }
+      if (x1 == 2 && y1 == 2) {
+        d = ((mat1)[0][0]*(mat1)[1][1])
+            -
+            ((mat1)[0][1]*(mat1)[1][0]);
+        printf("%d\n", d);
+        scanf("%d", &k);
+        menuC();
+      }
+      if (x1 == 1 && y1 == 1) {
+        d = (mat1)[0][0];
+        printf("%d\n", d);
+        scanf("%d", &k);
+        menuC();
+      }
+    }else{
+      printf("Tamanhos diferentes!\n");
+      printf("\nDigite 0 para voltar: ");
       scanf("%d", &k);
       menuC();
     }
   }
   if (k==2) {
-    if(x2 == 3 && y2 == 3){
-      d = ((mat2)[0][0]*(mat2)[1][1]*(mat2)[2][2] +
-           (mat2)[0][1]*(mat2)[1][2]*(mat2)[2][0] +
-           (mat2)[0][2]*(mat2)[1][0]*(mat2)[2][1])
-          -
-          ((mat2)[0][2]*(mat2)[1][1]*(mat2)[2][0] +
-           (mat2)[0][0]*(mat2)[1][2]*(mat2)[2][1] +
-           (mat2)[0][1]*(mat2)[1][0]*(mat2)[2][2]);
-      printf("%d\n", d);
-      scanf("%d", &k);
-      menuC();
-    }
-    if (x2 == 2 && y2 == 2) {
-      d = ((mat2)[0][0]*(mat2)[1][1])
-          -
-          ((mat2)[0][1]*(mat2)[1][0]);
-      printf("%d\n", d);
-      scanf("%d", &k);
-      menuC();
-    }
-    if (x2 == 1 && y2 == 1) {
-      d = (mat2)[0][0];
-      printf("%d\n", d);
+    if (x2 == y2) {
+      if(x2 == 3 && y2 == 3){
+        d = ((mat2)[0][0]*(mat2)[1][1]*(mat2)[2][2] +
+             (mat2)[0][1]*(mat2)[1][2]*(mat2)[2][0] +
+             (mat2)[0][2]*(mat2)[1][0]*(mat2)[2][1])
+            -
+            ((mat2)[0][2]*(mat2)[1][1]*(mat2)[2][0] +
+             (mat2)[0][0]*(mat2)[1][2]*(mat2)[2][1] +
+             (mat2)[0][1]*(mat2)[1][0]*(mat2)[2][2]);
+        printf("%d\n", d);
+        scanf("%d", &k);
+        menuC();
+      }
+      if (x2 == 2 && y2 == 2) {
+        d = ((mat2)[0][0]*(mat2)[1][1])
+            -
+            ((mat2)[0][1]*(mat2)[1][0]);
+        printf("%d\n", d);
+        scanf("%d", &k);
+        menuC();
+      }
+      if (x2 == 1 && y2 == 1) {
+        d = (mat2)[0][0];
+        printf("%d\n", d);
+        scanf("%d", &k);
+        menuC();
+      }
+    }else{
+      printf("Tamanhos diferentes!\n");
+      printf("\nDigite 0 para voltar: ");
       scanf("%d", &k);
       menuC();
     }
