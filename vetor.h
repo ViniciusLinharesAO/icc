@@ -9,20 +9,21 @@
 // **``BLIBIOTECA DE OPERAÇÕES DOS VETORES´´**
 #include <stdio.h>
 #include <stdlib.h>
-#define aviso printf
-int lerDnv=0;
+int lerDnvVet=0;
 //**FUNÇÃO DE LEITURA DOS VETORES**//
 void lerVetor(int **vet1,int **vet2, int *n1, int *n2) {
   int menuB(void);
   int i;
-  if(lerDnv==1){
-    printf("Sobrescrever os vetores?( 1=Sim / 0=Não )\n");
+  if(lerDnvVet==1){
+    printf("Sobrescrever os vetores?( 1=Sim / 0=Não ): ");
+    free(*vet1);
+    free(*vet2);
     scanf("%d", &i);
     if (i==0) {
       menuB();
     }
     if (i==1) {
-      lerDnv=0;
+      lerDnvVet=0;
       printf("Digite o tamanho do Vetor 1: ");
       scanf("%d", n1);
       printf("insira os valores\n");
@@ -39,14 +40,14 @@ void lerVetor(int **vet1,int **vet2, int *n1, int *n2) {
         printf("[%d]: ", i+1);
         scanf("%d", &(*vet2)[i]);
       }
-      lerDnv++;
+      lerDnvVet++;
     }
     if(i!=0 && i!=1){
       printf("Opção inválida, digite 0 para voltar para o menu: ");
       scanf("%d", &i);
     }
   }
-  if(lerDnv==0){
+  if(lerDnvVet==0){
     printf("Digite o tamanho do Vetor 1: ");
     scanf("%d", n1);
     printf("insira os valores\n");
@@ -63,7 +64,7 @@ void lerVetor(int **vet1,int **vet2, int *n1, int *n2) {
       printf("[%d]: ", i+1);
       scanf("%d", &(*vet2)[i]);
     }
-    lerDnv++;
+    lerDnvVet++;
   }
   menuB();
 }
@@ -89,8 +90,7 @@ int soma2Vet(int *vet1, int *vet2, int n1, int n2){
 //**FUNÇÃO DE MULTIPLICAÇÃO POR ESCALAR COM 1 DOS VETORES**//
 int mulEsc(int *vet1, int *vet2, int n1, int n2){
   int menuB(void);
-  int i;
-  int v,n;
+  int i,v,n;
   printf("Vetor 1 ou 2?: ");
   scanf("%d", &v);
   if(v==1 || v==2){
@@ -99,7 +99,6 @@ int mulEsc(int *vet1, int *vet2, int n1, int n2){
     if(v==1){
       for (int i = 0; i < n1; i++) {
         printf("%d ", n*(vet1[i]));
-        if(i==n1-1){ printf("\n"); }
       }
       printf("\n\nDigite 0 para voltar\n");
       scanf("%d", &i);

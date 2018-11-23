@@ -12,7 +12,7 @@
 #include "vetor.h"
 #include "matriz.h"
 
-int *vet1 = NULL, *vet2 = NULL, n1=0, n2=1;
+int *vet1 = NULL, *vet2 = NULL, n1=0, n2=0;
 int **mat1 = NULL, **mat2 = NULL, l1=0, c1=1, c2=0, l2=1;
 
 int n,iA=0,iB=0,iC=0;

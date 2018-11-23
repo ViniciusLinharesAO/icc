@@ -9,39 +9,91 @@
 // **``BLIBIOTECA DE OPERAÇÕES DAS MATRIZES´´**
 #include <stdio.h>
 #include <stdlib.h>
+int lerDnvMat=0;
 //**FUNÇÃO DE LEITURA DAS MATRIZES**//
 void lerMatriz(int ***mat1,int ***mat2, int *x1, int *y1, int *x2, int *y2) {
   int menuC(void);
   int i,j;
-  printf("Digite a quantidade de linhas da Matriz 1: ");
-  scanf("%d", x1);
-  printf("Digite a quantidade de colunas da Matriz 1: ");
-  scanf("%d", y1);
-  (*mat1) = (int **)malloc((*x1) * sizeof(int *));
-  for (i=0; i < *x1; i++){
-    (*mat1)[i] = (int *)malloc((*y1) * sizeof(int *));
-  }
-  printf("insira os valores\n");
-  for (i = 0; i < *x1; i++) {
-    for (j = 0; j < *y1; j++) {
-      printf("[%d][%d]: ", i+1, j+1);
-      scanf("%d", &(*mat1)[i][j]);
+  if(lerDnvMat==1){
+    printf("Sobrescrever as matrizes?( 1=Sim / 0=Não ): ");
+    free(**mat1);
+    free(**mat2);
+    scanf("%d", &i);
+    if (i==0) {
+      menuC();
+    }
+    if (i==1) {
+      lerDnvMat=0;
+      printf("Digite a quantidade de linhas da Matriz 1: ");
+      scanf("%d", x1);
+      printf("Digite a quantidade de colunas da Matriz 1: ");
+      scanf("%d", y1);
+      (*mat1) = (int **)malloc((*x1) * sizeof(int *));
+      for (i=0; i < *x1; i++){
+        (*mat1)[i] = (int *)malloc((*y1) * sizeof(int *));
+      }
+      printf("insira os valores\n");
+      for (i = 0; i < *x1; i++) {
+        for (j = 0; j < *y1; j++) {
+          printf("[%d][%d]: ", i+1, j+1);
+          scanf("%d", &(*mat1)[i][j]);
+        }
+      }
+      printf("Digite a quantidade de linhas da Matriz 2: ");
+      scanf("%d", x2);
+      printf("Digite a quantidade de colunas da Matriz 2: ");
+      scanf("%d", y2);
+      (*mat2) = (int **)malloc((*x2) * sizeof(int *));
+      for (i=0; i < *x2; i++){
+        (*mat2)[i] = (int *)malloc((*y2) * sizeof(int *));
+      }
+      printf("insira os valores\n");
+      for (i = 0; i < *x2; i++) {
+        for (j = 0; j < *y2; j++) {
+          printf("[%d][%d]: ", i+1, j+1);
+          scanf("%d", &(*mat2)[i][j]);
+        }
+      }
+      lerDnvMat++;
+    }
+    if(i!=0 && i!=1){
+      printf("Opção inválida, digite 0 para voltar para o menu: ");
+      scanf("%d", &i);
     }
   }
-  printf("Digite a quantidade de linhas da Matriz 2: ");
-  scanf("%d", x2);
-  printf("Digite a quantidade de colunas da Matriz 2: ");
-  scanf("%d", y2);
-  (*mat2) = (int **)malloc((*x2) * sizeof(int *));
-  for (i=0; i < *x2; i++){
-    (*mat2)[i] = (int *)malloc((*y2) * sizeof(int *));
-  }
-  printf("insira os valores\n");
-  for (i = 0; i < *x2; i++) {
-    for (j = 0; j < *y2; j++) {
-      printf("[%d][%d]: ", i+1, j+1);
-      scanf("%d", &(*mat2)[i][j]);
+  if(lerDnvMat==0){
+    lerDnvMat=0;
+    printf("Digite a quantidade de linhas da Matriz 1: ");
+    scanf("%d", x1);
+    printf("Digite a quantidade de colunas da Matriz 1: ");
+    scanf("%d", y1);
+    (*mat1) = (int **)malloc((*x1) * sizeof(int *));
+    for (i=0; i < *x1; i++){
+      (*mat1)[i] = (int *)malloc((*y1) * sizeof(int *));
     }
+    printf("insira os valores\n");
+    for (i = 0; i < *x1; i++) {
+      for (j = 0; j < *y1; j++) {
+        printf("[%d][%d]: ", i+1, j+1);
+        scanf("%d", &(*mat1)[i][j]);
+      }
+    }
+    printf("Digite a quantidade de linhas da Matriz 2: ");
+    scanf("%d", x2);
+    printf("Digite a quantidade de colunas da Matriz 2: ");
+    scanf("%d", y2);
+    (*mat2) = (int **)malloc((*x2) * sizeof(int *));
+    for (i=0; i < *x2; i++){
+      (*mat2)[i] = (int *)malloc((*y2) * sizeof(int *));
+    }
+    printf("insira os valores\n");
+    for (i = 0; i < *x2; i++) {
+      for (j = 0; j < *y2; j++) {
+        printf("[%d][%d]: ", i+1, j+1);
+        scanf("%d", &(*mat2)[i][j]);
+      }
+    }
+    lerDnvMat++;
   }
   printf("\nDigite 0 para voltar: ");
   scanf("%d", &i);
@@ -164,8 +216,8 @@ int deterMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   printf("Apenas no caso da matriz 1x1, 2x2, ou 3x3\nMatriz 1 ou 2: ");
   scanf("%d", &k);
   if (k==1) {
-    if (x1 ==y1) {
-      if(x1 == 3 && y1 == 3){
+    if (x1 == y1) {
+      if(x1 == 3){
         d = ((mat1)[0][0]*(mat1)[1][1]*(mat1)[2][2] +
              (mat1)[0][1]*(mat1)[1][2]*(mat1)[2][0] +
              (mat1)[0][2]*(mat1)[1][0]*(mat1)[2][1])
@@ -177,7 +229,7 @@ int deterMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
         scanf("%d", &k);
         menuC();
       }
-      if (x1 == 2 && y1 == 2) {
+      if (x1 == 2) {
         d = ((mat1)[0][0]*(mat1)[1][1])
             -
             ((mat1)[0][1]*(mat1)[1][0]);
@@ -185,9 +237,15 @@ int deterMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
         scanf("%d", &k);
         menuC();
       }
-      if (x1 == 1 && y1 == 1) {
+      if (x1 == 1) {
         d = (mat1)[0][0];
         printf("%d\n", d);
+        scanf("%d", &k);
+        menuC();
+      }
+      if (x1 != 1 && x1 != 2 && x1 != 3) {
+        printf("Tamanho inválido!\n");
+        printf("\nDigite 0 para voltar: ");
         scanf("%d", &k);
         menuC();
       }
@@ -200,7 +258,7 @@ int deterMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   }
   if (k==2) {
     if (x2 == y2) {
-      if(x2 == 3 && y2 == 3){
+      if(x2 == 3){
         d = ((mat2)[0][0]*(mat2)[1][1]*(mat2)[2][2] +
              (mat2)[0][1]*(mat2)[1][2]*(mat2)[2][0] +
              (mat2)[0][2]*(mat2)[1][0]*(mat2)[2][1])
@@ -212,7 +270,7 @@ int deterMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
         scanf("%d", &k);
         menuC();
       }
-      if (x2 == 2 && y2 == 2) {
+      if (x2 == 2) {
         d = ((mat2)[0][0]*(mat2)[1][1])
             -
             ((mat2)[0][1]*(mat2)[1][0]);
@@ -220,9 +278,15 @@ int deterMat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
         scanf("%d", &k);
         menuC();
       }
-      if (x2 == 1 && y2 == 1) {
+      if (x2 == 1) {
         d = (mat2)[0][0];
         printf("%d\n", d);
+        scanf("%d", &k);
+        menuC();
+      }
+      if (x1 != 1 && x1 != 2 && x1 != 3) {
+        printf("Tamanho inválido!\n");
+        printf("\nDigite 0 para voltar: ");
         scanf("%d", &k);
         menuC();
       }
