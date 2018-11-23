@@ -63,7 +63,7 @@ int soma2Mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2){
 
 int Mul2mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
   int menuC(void);
-  int i, j, k, n, f=0;
+  int i, j, k, n;
   printf("1. A*B\n2. B*A\nOperação 1 ou 2: ");
   scanf("%d", &n);
   if (n == 1) {
@@ -72,7 +72,7 @@ int Mul2mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
       for (i = 0; i < x1; i++){
         for (j = 0; j < y2; j++){
           mulVet[i][j] = 0;
-          for (k = 0; k < y2; k++){
+          for (k = 0; k < x2; k++){
             mulVet[i][j] = mulVet[i][j] + mat1[i][k] * mat2[k][j];
           }
         }
@@ -93,9 +93,8 @@ int Mul2mat(int **mat1,int **mat2, int x1, int y1, int x2, int y2) {
       for (i = 0; i < x2; i++){
         for (j = 0; j < y1; j++){
           mulVet2[i][j] = 0;
-          f++;printf("\nFODEU %d\n", f);
-          for (k = 0; k < y1; k++){
-            mulVet2[i][j] = mulVet2[i][j] + mat1[i][k] * mat2[k][j];
+          for (k = 0; k < x1; k++){
+            mulVet2[i][j] = mulVet2[i][j] + mat2[i][k] * mat1[k][j];
           }
         }
       }

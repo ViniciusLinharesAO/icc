@@ -52,8 +52,8 @@ void lerVetor(int **vet1,int **vet2, int *n1, int *n2) {
     printf("insira os valores\n");
     *vet1 = (int *) malloc((*n1)*sizeof(int));
     for (int i = 0; i < *n1; i++) {
-      scanf("%d", &(*vet1)[i]);
       printf("[%d]: ", i+1);
+      scanf("%d", &(*vet1)[i]);
     }
     printf("Digite o tamanho do Vetor 2: ");
     scanf("%d", n2);
