@@ -4,7 +4,7 @@
 //Autores: - Davi Luis Barbosa Silve
 //         - Dedyanna Carla de Almeida Cacau
 //         - Vinícius Linhares Alves de Oliveira
-//               **``FORTALEZA/CE-2018´´**
+//               **``FORTALEZA/CE-2019´´**
 //##############################################################################
 // **``BLIBIOTECA DE OPERAÇÕES DAS MATRIZES´´**
 #include <stdio.h>
